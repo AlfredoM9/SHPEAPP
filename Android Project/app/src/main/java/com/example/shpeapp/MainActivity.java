@@ -9,15 +9,26 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button testingButton;
+    Button homeLoginBtt, homeSignUpBtt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        testingButton = (Button) findViewById(R.id.homeLoginButton);
+        homeLoginBtt = (Button) findViewById(R.id.homeLoginButton);
+        homeSignUpBtt = (Button) findViewById(R.id.homeSignUpButton);
 
-        testingButton.setOnClickListener(new View.OnClickListener() {
+        homeLoginBtt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Login_Activity.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+        });
+
+        homeSignUpBtt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SignUp_Activity.class);
@@ -26,5 +37,6 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
         });
+
     }
 }
